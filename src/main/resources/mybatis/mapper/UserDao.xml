@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.adibio.dao.UserDao">
+    <select id="queryByOpenid" parameterType="string" resultType="User">
+        SELECT
+          open_id, order_ids, receinfo_ids
+        FROM
+          user
+        WHERE
+          open_id = #{openId}
+    </select>
+
+    <update id="updateReceiveinfoIds" parameterType="string">
+        UPDATE
+          user
+        SET
+          receinfo_ids = #{receinfoIds}
+        WHERE
+          open_id = #{openId}
+    </update>
+
+    <insert id="insertUser">
+        INSERT
+          ignore
+        INTO
+          `user` (open_id, order_ids, receinfo_ids)
+        VALUES
+          (#{openId}, #{orderIds}, #{receinfoIds})
+    </insert>
+
+</mapper>

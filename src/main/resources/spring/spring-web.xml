@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <mvc:annotation-driven/>
+
+    <!--<mvc:default-servlet-handler/>-->
+    <!-- 静态资源处理， css， js， imgs -->
+    <mvc:resources location="/resources/" mapping="/resources/**" />
+
+    <context:component-scan base-package="cn.adibio.web"/>
+
+    <context:annotation-config />
+
+    <!--<mvc:annotation-driven>-->
+    <!--<mvc:message-converters>-->
+    <!--<bean class="org.springframework.http.converter.StringHttpMessageConverter">-->
+    <!--<property name="supportedMediaTypes">-->
+    <!--<list>-->
+    <!--<value>application/xml;charset=UTF-8</value>-->
+    <!--</list>-->
+    <!--</property>-->
+    <!--</bean>-->
+    <!--</mvc:message-converters>-->
+    <!--</mvc:annotation-driven>-->
+
+    <!--&lt;!&ndash; 配置ViewResolver。 可以用多个ViewResolver。 使用order属性排序。 InternalResourceViewResolver放在最后。 &ndash;&gt;-->
+    <!--<bean-->
+    <!--class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">-->
+    <!--<property name="order" value="1" />-->
+    <!--<property name="mediaTypes">-->
+    <!--<map>-->
+    <!--<entry key="json" value="application/json" />-->
+    <!--<entry key="xml" value="application/xml" />-->
+    <!--<entry key="htm" value="text/html" />-->
+    <!--</map>-->
+    <!--</property>-->
+
+    <!--<property name="defaultViews">-->
+    <!--<list>-->
+    <!--&lt;!&ndash; JSON View &ndash;&gt;-->
+    <!--<bean-->
+    <!--class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">-->
+    <!--</bean>-->
+    <!--</list>-->
+    <!--</property>-->
+    <!--<property name="ignoreAcceptHeader" value="true" />-->
+    <!--</bean>-->
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/page/"/>
+        <property name="suffix" value=".jsp"/>
+
+    </bean>
+
+
+</beans>

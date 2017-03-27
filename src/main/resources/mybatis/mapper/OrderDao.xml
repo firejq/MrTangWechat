@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.adibio.dao.OrderDao">
+
+    <select id="queryAllByOpenid" parameterType="string" resultType="Order">
+        SELECT
+          id, order_id, open_id, create_time, state, address, phone, name, age, gender
+        FROM
+          `order`
+        WHERE
+          open_id = #{openId}
+    </select>
+
+    <select id="queryById" parameterType="Integer" resultType="Order">
+        SELECT
+        id, order_id, open_id, create_time, state, address, phone, name, age, gender
+        FROM
+        `order`
+        WHERE
+        id = #{id}
+    </select>
+
+    <insert id="insertOrder">
+        INSERT
+          ignore
+        INTO
+          `order` (open_id, create_time, state, address, phone, name, age, gender)
+        VALUES
+          (#{openId}, #{createTime}, #{state}, #{address}, #{phone}, #{name}, #{age}, #{gender})
+    </insert>
+
+    <select id="queryAllOrder" resultType="Order">
+        SELECT
+        id, order_id, open_id, create_time, state, address, phone, name, age, gender
+        FROM
+        `order`
+    </select>
+</mapper>
