@@ -12,7 +12,6 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="MrTangWechat" target="1.8" />
-      <module name="wechat" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

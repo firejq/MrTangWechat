@@ -15,11 +15,11 @@
 
     <select id="queryById" parameterType="Integer" resultType="Order">
         SELECT
-        id, order_id, open_id, create_time, state, address, phone, name, age, gender
+          id, order_id, open_id, create_time, state, address, phone, name, age, gender
         FROM
-        `order`
+          `order`
         WHERE
-        id = #{id}
+          id = #{id}
     </select>
 
     <insert id="insertOrder">
